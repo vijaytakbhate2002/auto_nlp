@@ -1,0 +1,1 @@
+metrics = ['precision', 'recall', 'f1', 'train_accuracy', 'test_accuracy']

@@ -1,0 +1,432 @@
+﻿Question,Category
+Tell me about yourself.,Personal
+Why are you interested in this role?,Personal
+What motivates you in your work?,Personal
+What are your strengths?,Personal
+What are your weaknesses?,Personal
+Where do you see yourself in five years?,Personal
+Why should we hire you?,Personal
+What do you know about our company?,Personal
+What are your long-term career goals?,Personal
+Are you comfortable working in a team?,Personal
+Do you have any hobbies or interests outside work?,Personal
+What is your biggest achievement so far?,Personal
+How do you handle stress and pressure?,Personal
+What are your short-term goals?,Personal
+What is your ideal work environment?,Personal
+Are you willing to relocate?,Personal
+Why did you choose your field of study?,Personal
+How do you stay updated with industry trends?,Personal
+What challenges have you faced in your education?,Personal
+What skills do you want to develop in the next year?,Personal
+Do you have any role models? Why?,Personal
+What motivates you to do your best?,Personal
+How do you prioritize your tasks?,Personal
+Can you describe yourself in three words?,Personal
+What kind of management style do you prefer?,Personal
+What makes you unique compared to other candidates?,Personal
+Do you have any plans for further studies or certifications?,Personal
+What values are important to you in a workplace?,Personal
+How do you handle constructive criticism?,Personal
+Have you participated in any extracurricular activities?,Personal
+What do you consider your greatest strength as a person?,Personal
+Are you open to learning new technologies or skills?,Personal
+What do you consider your greatest weakness?,Personal
+Have you ever faced a failure? How did you handle it?,Personal
+Who has been your biggest influence in life?,Personal
+How do you balance work and Personal life?,Personal
+Can you explain your resume briefly?,Personal
+What kind of company culture do you prefer?,Personal
+What does success mean to you?,Personal
+What kind of work excites you?,Personal
+What is the most important lesson you learned in college?,Personal
+What kind of projects do you enjoy working on?,Personal
+Do you prefer working independently or in a team?,Personal
+What do you do to improve yourself?,Personal
+Have you ever taken on leadership roles?,Personal
+How do you manage your time?,Personal
+Do you have any volunteer experience?,Personal
+What is your greatest fear?,Personal
+Are you comfortable working under deadlines?,Personal
+How do you define hard work?,Personal
+What was your favorite subject in college and why?,Personal
+How do you keep yourself organized?,Personal
+What motivates you to wake up every morning?,Personal
+Have you worked on improving any skills recently?,Personal
+What do you enjoy doing in your free time?,Personal
+Are you comfortable taking feedback?,Personal
+What has been your biggest challenge so far?,Personal
+Do you like solving problems?,Personal
+How do you deal with conflicts?,Personal
+What kind of relationships do you build with coworkers?,Personal
+Do you have a preference for any specific industry?,Personal
+What are your salary expectations?,Personal
+What inspires you the most?,Personal
+Do you believe in continuous learning?,Personal
+Can you tell me something that is not on your resume?,Personal
+What Personal qualities make you a good fit for this role?,Personal
+What would you do if you were stuck on a task?,Personal
+How do you stay calm in stressful situations?,Personal
+What tools or methods do you use to stay productive?,Personal
+What do you expect from a manager?,Personal
+How do you build trust with people?,Personal
+Whatâ€™s the best advice youâ€™ve ever received?,Personal
+How do you celebrate success?,Personal
+What would you do if you disagreed with your boss?,Personal
+What kind of job roles excite you?,Personal
+What does a healthy work-life balance mean to you?,Personal
+How would your friends describe you?,Personal
+Do you believe in setting goals?,Personal
+What is your approach to handling criticism?,Personal
+What are your thoughts on workplace diversity?,Personal
+Have you ever handled multiple priorities simultaneously?,Personal
+What do you do when you feel demotivated?,Personal
+How do you stay disciplined in your work?,Personal
+What are some challenges you anticipate in this role?,Personal
+How do you measure Personal growth?,Personal
+Whatâ€™s the most valuable skill youâ€™ve learned recently?,Personal
+Have you ever worked on a self-initiated project?,Personal
+Whatâ€™s your approach to decision-making?,Personal
+How do you ensure accuracy in your work?,Personal
+Do you consider yourself detail-oriented or big-picture focused?,Personal
+What would you improve about yourself?,Personal
+What are your expectations from this job?,Personal
+How do you handle unexpected changes?,Personal
+What do you value most in your life?,Personal
+What is your favorite way to learn new skills?,Personal
+Can you describe your most recent data science project?,Project
+What programming languages are you proficient in?,Project
+How do you handle missing data in a dataset?,Project
+What are the key steps in a data science pipeline?,Project
+What libraries and frameworks do you use for data analysis?,Project
+How do you select the right machine learning model for a problem?,Project
+What is the difference between supervised and unsupervised learning?,Project
+Can you explain a classification problem you've worked on?,Project
+"What is overfitting, and how do you prevent it?",Project
+Have you implemented any feature engineering techniques?,Project
+How do you ensure data quality in a project?,Project
+Can you explain a time when you optimized a machine learning model?,Project
+What techniques do you use for feature selection?,Project
+"Have you worked on time series analysis? If so, what challenges did you face?",Project
+What tools do you use for data visualization?,Project
+How do you evaluate the performance of a machine learning model?,Project
+"Can you explain precision, recall, and F1-score?",Project
+What experience do you have with natural language processing?,Project
+"Have you used deep learning models? If yes, which frameworks?",Project
+Can you describe a regression analysis project you've worked on?,Project
+How do you handle imbalanced datasets?,Project
+What is your approach to exploratory data analysis?,Project
+Have you worked with big data tools like Hadoop or Spark?,Project
+How do you deploy a machine learning model?,Project
+Can you explain cross-validation and its importance?,Project
+Have you used any cloud platforms for data science projects?,Project
+What is your experience with SQL for data analysis?,Project
+Can you write a query to find duplicates in a table?,Project
+Have you used APIs to fetch data for a project?,Project
+Can you describe a time when you automated a data processing task?,Project
+What is the role of a confusion matrix in model evaluation?,Project
+Have you worked with recommendation systems?,Project
+What preprocessing techniques have you used for text data?,Project
+How do you ensure reproducibility in your data science projects?,Project
+Can you explain a clustering algorithm you’ve implemented?,Project
+Have you used ensemble learning techniques like boosting or bagging?,Project
+What is your experience with version control systems like Git?,Project
+Can you explain the difference between a DataFrame and an array?,Project
+What steps would you take to handle outliers in a dataset?,Project
+Can you describe a project where you used Python for data analysis?,Project
+"Have you worked with image data? If so, what techniques did you use?",Project
+Can you explain the role of hyperparameter tuning in machine learning?,Project
+Have you built a dashboard for data visualization? What tools did you use?,Project
+Can you describe a time when you worked with unstructured data?,Project
+What is your approach to cleaning large datasets?,Project
+How do you balance bias and variance in a model?,Project
+Have you used transfer learning in any project?,Project
+What is your experience with pandas and NumPy?,Project
+Can you explain the difference between bagging and boosting?,Project
+Have you implemented any real-time data analysis solutions?,Project
+What metrics do you use for regression model evaluation?,Project
+Can you explain an A/B testing project you've worked on?,Project
+What challenges have you faced in data labeling?,Project
+How do you handle class imbalance in a classification problem?,Project
+Can you explain the difference between logistic and linear regression?,Project
+What techniques have you used for dimensionality reduction?,Project
+How do you identify and handle multicollinearity in a dataset?,Project
+Can you describe your experience with TensorFlow or PyTorch?,Project
+Have you worked on forecasting projects?,Project
+What is the role of scaling in data preprocessing?,Project
+Can you explain the difference between batch and online learning?,Project
+Have you implemented a chatbot or conversational AI?,Project
+What is your experience with object detection or image segmentation?,Project
+Can you describe a project where you optimized query performance?,Project
+Have you used Docker to containerize a data science project?,Project
+Can you explain your approach to hyperparameter optimization?,Project
+What is your experience with Tableau or Power BI?,Project
+Have you implemented any data pipelines for automation?,Project
+Can you describe a time when you used data to solve a business problem?,Project
+What is the role of principal component analysis in data science?,Project
+Have you worked on any Kaggle competitions? What was your approach?,Project
+What experience do you have with graph databases?,Project
+Can you explain a generative model you've worked on?,Project
+Have you implemented reinforcement learning algorithms?,Project
+What steps do you take to document your code and projects?,Project
+Can you describe a project where you used advanced statistical methods?,Project
+What is your experience with exploratory data analysis?,Project
+Have you built a recommendation engine? How did you approach it?,Project
+What tools do you use for version control in collaborative projects?,Project
+Can you explain a project where you handled high-dimensional data?,Project
+What methods do you use for hyperparameter tuning?,Project
+How do you explain complex technical concepts to non-technical stakeholders?,Project
+What steps would you take to scale a machine learning solution?,Project
+Can you describe a project where you used unsupervised learning?,Project
+Have you worked with edge devices for deploying AI models?,Project
+What is your experience with REST APIs for data retrieval?,Project
+Can you explain the role of an optimizer in a neural network?,Project
+Have you worked with real-time data streams?,Project
+What techniques do you use for anomaly detection?,Project
+"Have you built a pipeline for ETL (Extract, Transform, Load)?",Project
+Can you describe your approach to data storytelling?,Project
+What steps do you take to ensure data privacy and security in a project?,Project
+Have you worked on any open-source data science projects?,Project
+What is your experience with unsupervised learning techniques?,Project
+Can you describe a project where you implemented sentiment analysis?,Project
+Can you walk us through your professional journey so far?,Experience
+What roles have you held in your previous jobs?,Experience
+How has your education prepared you for this role?,Experience
+"What was the biggest challenge you faced in your previous job, and how did you overcome it?",Experience
+Can you describe a time when you took initiative in a project?,Experience
+What experience do you have working in teams?,Experience
+How do you handle conflicts in a professional setting?,Experience
+Have you ever mentored or trained someone? Can you share that experience?,Experience
+What is the most significant achievement in your career so far?,Experience
+Can you describe a time when you had to meet a tight deadline?,Experience
+What experience do you have with client-facing roles?,Experience
+Can you explain a situation where you had to adapt quickly to a change?,Experience
+How do you prioritize tasks when managing multiple deadlines?,Experience
+What role do you usually take in a team setting?,Experience
+Have you ever led a team? What challenges did you face?,Experience
+What is your experience with presenting or communicating technical information?,Experience
+Can you describe a project where you exceeded expectations?,Experience
+How do you stay updated in your field?,Experience
+What was the most challenging project you've worked on?,Experience
+Can you explain a situation where you learned from a failure?,Experience
+How do you approach problem-solving in high-pressure situations?,Experience
+What was your role in your last major project?,Experience
+How do you ensure you meet project goals and deadlines?,Experience
+Can you provide an example of a time you handled criticism constructively?,Experience
+What steps do you take to ensure quality in your work?,Experience
+How do you balance independent work and collaboration?,Experience
+Can you describe a time when you improved a process or system?,Experience
+What experience do you have with project management tools?,Experience
+Have you worked with cross-functional teams? How did you handle it?,Experience
+What strategies do you use to manage stress at work?,Experience
+Can you share an example of a successful project you've led?,Experience
+What is your experience with working on long-term projects?,Experience
+How do you handle ambiguous tasks or requirements?,Experience
+What is the most valuable lesson you've learned from your previous experiences?,Experience
+Can you describe a time when you had to persuade someone to adopt your idea?,Experience
+How do you approach feedback from colleagues or supervisors?,Experience
+What experience do you have with remote work or virtual teams?,Experience
+Can you explain a time when you managed a difficult stakeholder?,Experience
+What is your experience with documentation and reporting in your projects?,Experience
+Have you ever worked on a project that failed? What did you learn?,Experience
+How do you ensure effective communication within a team?,Experience
+What has been your experience with career growth in your previous roles?,Experience
+Can you share an example of a technical problem you solved?,Experience
+What experience do you have with presenting findings to a non-technical audience?,Experience
+Have you ever had to work under minimal supervision? How did you handle it?,Experience
+Can you describe a time when you worked on a project outside your expertise?,Experience
+How do you handle repetitive or mundane tasks?,Experience
+What experience do you have with budget or resource management?,Experience
+Can you share a time when you resolved a workplace disagreement?,Experience
+What role have you played in scaling or improving a product or service?,Experience
+Have you ever worked on a project that required cross-cultural collaboration?,Experience
+What do you consider your greatest strength as a professional?,Experience
+Can you describe a time when you went above and beyond for a project?,Experience
+What experience do you have with stakeholder management?,Experience
+How do you handle situations where you have to deliver bad news to a client or team?,Experience
+What tools or methods do you use to track your progress on tasks?,Experience
+Have you ever worked on multiple projects simultaneously? How did you manage your time?,Experience
+Can you explain how you have contributed to a team's success in the past?,Experience
+What is your experience with conducting research in your field?,Experience
+Can you describe a time when you identified and fixed a critical issue?,Experience
+What is your experience with implementing new tools or technologies?,Experience
+How do you measure success in your work?,Experience
+What steps do you take to ensure effective collaboration with your team?,Experience
+Can you share an example of a time when you handled a major project risk?,Experience
+What is your experience with providing constructive feedback?,Experience
+Have you ever had to train others on new systems or processes?,Experience
+Can you describe a time when you had to deal with unexpected project scope changes?,Experience
+How do you approach delegating tasks within a team?,Experience
+What is your experience with agile or scrum methodologies?,Experience
+Have you worked on projects where you had to gather requirements from clients?,Experience
+How do you track and measure the impact of your work?,Experience
+What is your experience with writing or contributing to technical proposals?,Experience
+Can you describe a time when you streamlined a process to save time or resources?,Experience
+What is your experience with conflict resolution in a team setting?,Experience
+How do you handle situations where a project doesn't go as planned?,Experience
+What methods do you use to stay organized and meet deadlines?,Experience
+Can you explain a time when you had to upskill quickly to meet a project's needs?,Experience
+What is your experience with implementing best practices in your work?,Experience
+Can you describe a time when you took on additional responsibilities at work?,Experience
+How do you ensure continuous learning and development in your career?,Experience
+Can you share an example of a time when you improved team efficiency?,Experience
+What is your experience with creating or maintaining standard operating procedures?,Experience
+Can you describe a time when you had to advocate for a resource or tool?,Experience
+What steps do you take to identify and address project bottlenecks?,Experience
+How do you ensure alignment between team goals and organizational objectives?,Experience
+Can you describe a time when you managed a large-scale project?,Experience
+What is your experience with identifying and mitigating risks?,Experience
+How do you approach creating and maintaining professional relationships?,Experience
+Have you ever been involved in hiring or onboarding new team members?,Experience
+Can you share an example of a project where you delivered measurable results?,Experience
+How do you handle competing priorities in your workload?,Experience
+What is your experience with industry-specific certifications or training?,Experience
+Can you describe a time when you took ownership of a challenging situation?,Experience
+What is your full name,Personal
+What is your date of birth,Personal
+What is your contact number,Personal
+What is your email address,Personal
+What is your residential address,Personal
+Are you married or single,Personal
+Do you have any dependents,Personal
+What is your nationality,Personal
+Do you hold any other citizenships,Personal
+What is your mother tongue,Personal
+Do you have any disabilities we should be aware of,Personal
+What are your hobbies or interests,Personal
+Who should we contact in case of an emergency,Personal
+What is your relationship with the emergency contact person,Personal
+What is your blood group,Personal
+Do you have any allergies or medical conditions,Personal
+What languages can you speak fluently,Personal
+Do you have any dietary restrictions,Personal
+What is your highest educational qualification,Personal
+Where did you complete your education,Personal
+Do you have any family members working in this organization,Personal
+Are you comfortable relocating if required,Personal
+Do you own a vehicle,Personal
+Are you willing to work on weekends if required,Personal
+Are you currently pursuing any further studies,Personal
+Do you have any criminal record,Personal
+Have you ever been involved in a legal case,Personal
+Do you have any travel restrictions,Personal
+Do you have a valid passport,Personal
+Do you hold a work visa for this country,Personal
+What is your religion or faith,Personal
+What is your current living situation,Personal
+Do you live with your family or alone,Personal
+What are your social media handles,Personal
+Do you smoke or consume alcohol,Personal
+What is your fitness routine or exercise habits,Personal
+Do you have pets,Personal
+What is your preferred mode of transportation,Personal
+Have you participated in any voluntary or community services,Personal
+What is your favorite way to spend weekends,Personal
+Do you have any preferences for workplace facilities,Personal
+What motivates you Personally,Personal
+How do you handle stress in your Personal life,Personal
+What are your long-term Personal goals,Personal
+What values are most important to you,Personal
+How do you maintain work-life balance,Personal
+What are your preferred working hours,Personal
+Are there any festivals or holidays you celebrate that we should know about,Personal
+Do you have any financial dependencies,Personal
+What Personal achievements are you most proud of,Personal
+What was the name of your most recent project,Project
+What was the primary objective of the project,Project
+What technologies or tools did you use in the project,Project
+What role did you play in the project,Project
+Was the project a team effort or an individual task,Project
+How long did it take to complete the project,Project
+What challenges did you face during the project,Project
+How did you overcome those challenges,Project
+What was the outcome of the project,Project
+How did the project benefit the organization or client,Project
+Who were the stakeholders in the project,Project
+How did you manage stakeholder expectations,Project
+What was your contribution to the project,Project
+How did you measure the success of the project,Project
+What tools or methodologies did you use for project management,Project
+Was the project delivered on time and within budget,Project
+Did the project involve cross-functional teams,Project
+What was your strategy for collaboration in the project,Project
+What was the most innovative aspect of the project,Project
+What feedback did you receive for the project,Project
+What lessons did you learn from the project,Project
+How did you handle conflicts or disagreements during the project,Project
+What data or metrics did you analyze in the project,Project
+How did you document the progress of the project,Project
+Did you use any version control systems in the project,Project
+Were there any risks identified in the project,Project
+How did you mitigate the risks in the project,Project
+Did the project require client interaction,Project
+How did you ensure client satisfaction during the project,Project
+What testing methods did you use in the project,Project
+How did you ensure the quality of deliverables,Project
+What was the biggest achievement in the project,Project
+Did the project involve any automation,Project
+How did you ensure data security in the project,Project
+What kind of reports did you generate for the project,Project
+What KPIs were tracked during the project,Project
+Did you integrate any APIs in the project,Project
+What version of the technology stack was used in the project,Project
+How did you deploy the project,Project
+Was the project hosted on-premises or in the cloud,Project
+Did the project require compliance with any standards or regulations,Project
+What documentation did you prepare for the project,Project
+How did you handle project handover,Project
+Were there any changes in scope during the project,Project
+How did you manage change requests in the project,Project
+What training or onboarding was required for the project,Project
+Did you mentor or lead team members in the project,Project
+What was your favorite part of the project,Project
+What improvements would you make if you could redo the project,Project
+What was your last job title,Experience
+Which company did you work for previously,Experience
+How long did you work at your previous job,Experience
+What were your primary responsibilities in your previous role,Experience
+What skills did you acquire in your previous job,Experience
+Why did you leave your previous job,Experience
+What was the biggest challenge you faced in your previous role,Experience
+How did you handle conflicts with colleagues or clients in your previous job,Experience
+What achievements are you most proud of in your career,Experience
+Have you ever managed a team,Experience
+How did you contribute to your previous company's goals,Experience
+What types of projects have you worked on in your career,Experience
+Have you worked in cross-functional teams,Experience
+What industries have you worked in before,Experience
+What technical tools or software have you used in your previous jobs,Experience
+What certifications or training have you completed,Experience
+Have you ever led a project or initiative,Experience
+How do you prioritize tasks and deadlines,Experience
+What is your experience with remote work,Experience
+Have you worked in a fast-paced environment,Experience
+How do you handle high-pressure situations,Experience
+What feedback have you received from previous employers,Experience
+What improvements did you bring to your previous roles,Experience
+Have you worked with international clients,Experience
+What was the most innovative solution you implemented in a previous job,Experience
+What kind of reports or documentation did you create,Experience
+Have you ever worked with a diverse team,Experience
+What experience do you have with client communication,Experience
+How do you approach learning new technologies,Experience
+What professional accomplishments are you most proud of,Experience
+How do you ensure continuous growth in your career,Experience
+Have you ever been promoted in your previous roles,Experience
+What leadership experience do you have,Experience
+What experience do you have with budget management,Experience
+Have you ever had to negotiate with stakeholders,Experience
+How do you handle constructive criticism,Experience
+What was your longest tenure in a role,Experience
+What specific technical skills have you mastered,Experience
+Have you worked on improving processes in your previous roles,Experience
+What tools have you used for task or project management,Experience
+Have you trained or mentored colleagues in your previous jobs,Experience
+How do you handle conflicting priorities,Experience
+What experience do you have with performance reviews,Experience
+What was the most significant decision you made in your career,Experience
+Have you ever taken on additional responsibilities outside your role,Experience
+What experience do you have with creating presentations,Experience
+Have you ever worked with a startup,Experience
+What have you learned from your career setbacks,Experience
+What industries or domains do you have the most experience in,Experience
