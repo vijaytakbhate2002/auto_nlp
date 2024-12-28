@@ -27,7 +27,7 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 analyzer.analyzeModel(model_abbrivation='rf', y_true=y_test, y_pred=y_pred)
 
-tuner = training_pipe.HyperParameterTuner(model='lr', scoring='accuracy')
-result = tuner.bestEstimatorSelector(X=X, y=y)
-print(result)
+# tuner = training_pipe.HyperParameterTuner(model='lr', scoring='accuracy')
+# result = tuner.bestEstimatorSelector(X=X, y=y)
+# print(result)
 

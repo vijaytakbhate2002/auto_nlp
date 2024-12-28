@@ -27,9 +27,16 @@ class Tester:
                                                             stratify=self.stratify,
                                                             shuffle=True, random_state=42)
         return (X_train, X_test, y_train, y_test)
+    
+    def matricesClaculation(self, y_test, y_pred):
+        accuracy = accuracy_score(y_true=y_test, y_pred=y_pred)
+        recall = recall_score(y_true=y_test, y_pred=y_pred, average=None)
+        precision = precision_score(y_true=y_test, y_pred=y_pred, average=None)
+        f1 = f1_score(y_true=y_test, y_pred=y_pred, average=None)
+        return {'accuracy':accuracy, 'precision':precision, 'recall':recall, 'f1':f1}
 
-    def classificationMatrices(self, model:Union[ClassifierMixin, str],  X_train, X_test, y_train, y_test) -> dict:
-        """ 
+    def classificationMatrices(self, model_abbrivation:str,  X_train, X_test, y_train, y_test) -> dict:
+        """
             calculates (accuracy, precision, recall, f1) from given y_true and y_pred
 
             Args:
@@ -38,20 +45,18 @@ class Tester:
 
             Return: 
                 dict with all metrics
-            """
-        if type(model) == str:
-            model = models_with_params[model][0]
+        """
+        print(models_with_params[model_abbrivation][0])
+        model = models_with_params[model_abbrivation][0]
         model.fit(X_train, y_train)
         y_pred = model.predict(X_test)
-        accuracy = accuracy_score(y_true=y_test, y_pred=y_pred)
-        recall = recall_score(y_true=y_test, y_pred=y_pred, average=None)
-        precision = precision_score(y_true=y_test, y_pred=y_pred, average=None)
-        f1 = f1_score(y_true=y_test, y_pred=y_pred, average=None)
-        train_score = model.score(X_train, y_train)
-        test_score = model.score(X_test, y_test)
-        return {'accuracy':accuracy, 'train_score':train_score, 'test_score':test_score, 'precision':precision, 'recall':recall, 'f1':f1}
+
+        matrices_ = self.matricesClaculation(y_test=y_test, y_pred=y_pred)
+        matrices_['train_score'] = model.score(X_train, y_train)
+        matrices_['test_score'] = model.score(X_test, y_test)
+        return matrices_
     
-    def testAllModels(self, X:Union[pd.DataFrame], y:Union[pd.Series]) -> dict[dict]:
+    def testAllModels(self, model_abbrivation:str, X:Union[pd.DataFrame], y:Union[pd.Series]) -> dict[dict]:
         """ tain every model of Trainer class and evaluate it with below matrics
             train_score, test_score, accuracy_score precision_score, recall_score, f1_score_score
             Args: 
@@ -63,14 +68,10 @@ class Tester:
             """
         X_train, X_test, y_train, y_test = self.splitter(X=X, y=y)
         self.trainer.fit(X_train=X_train, y_train=y_train)
-        lr = self.trainer.logisticRegression()
-        dt = self.trainer.decisionTreeClassifier()
-        nb = self.trainer.multinomialNB()
-        rf = self.trainer.randomForestClassifer()
 
         model_reports = {}
-        model_lis = [lr, dt, nb, rf]
-        for model in model_lis:
+        model_abbrivations = ['lr', 'dt', 'nb', 'rf']
+        for model in model_abbrivations:
             report = self.classificationMatrices(model, X_train, X_test, y_train, y_test)
             model_reports[str(model)] = report
         return model_reports
@@ -91,7 +92,8 @@ class Tester:
 
         def predictor(model:ClassifierMixin) -> dict[dict]:
             y_pred = model.predict(X_test)
-            return self.classificationMatrices(y_true=y_test, y_pred=y_pred)
+            return self.classificationMatrices(model_abbrivation, X_train=X_train, 
+                                               X_test=X_test, y_train=y_train, y_test=y_test)
 
         if model_abbrivation == 'lr':
             model = self.trainer.logisticRegression(**params)

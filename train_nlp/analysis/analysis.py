@@ -17,6 +17,7 @@ class ModelPerformanceAnalyzer:
         """
         Plot a bar chart for model accuracies using Plotly.
         """
+        print("result in analysis class = ", self.results.items())
         accuracies = {model: metrics['accuracy'] for model, metrics in self.results.items()}
         
         fig = go.Figure(go.Bar(

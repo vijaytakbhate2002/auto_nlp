@@ -14,15 +14,25 @@ from typing import Union
 from .nlp_config import nlp_config
 
 class BaseOperations():
+    def __init__(self, target_col_name:str, input_col_name:str) -> None:
+        self.input_col_name = input_col_name
+        self.target_col_name = target_col_name
+
     def show(self):
         return self.df
 
-class PrepareData(BaseOperations):
-    def __init__(self, file_path:str, file_type:str, target_col_name:str, input_col_name:str) -> None:
-        self.file_path = file_path
-        self.file_type = file_type
+    def fit(self, df:pd.DataFrame):
+        self.df = df
+
+    def fit_col_names(self, target_col_name:str, input_col_name:str):
         self.target_col_name = target_col_name
         self.input_col_name = input_col_name
+
+class PrepareData(BaseOperations):
+    def __init__(self, file_path:str, file_type:str, target_col_name:str, input_col_name:str) -> None:
+        super().__init__(target_col_name=target_col_name, input_col_name=input_col_name)
+        self.file_path = file_path
+        self.file_type = file_type
 
     def readData(self) -> None:
         """ read csv file and store it in class objects df variable
@@ -32,40 +42,20 @@ class PrepareData(BaseOperations):
         elif self.file_type == '.xlsx':
             self.df = pd.read_excel(self.file_path)
 
-    def splitData(self) -> tuple:
-        """ Splits data into X and y
-            Return: tuple"""
-        self.X = self.df[self.input_col_name]
-        self.y = self.df[self.target_col_name]
-        return self.X, self.y
-
-
-class ProcessData:
-
-    def __init__(self, vectorizer_abbrivation:str, MIN_DF:float=0.01) -> None:
-        
-        self.vectorizer_abbrivation=vectorizer_abbrivation
-        self.MIN_DF = MIN_DF
-
-    def fit(self, X:pd.Series, y:pd.Series) -> None:
-        self.X = X
-        self.y = y
+class ProcessData(BaseOperations):
+    LABELS = None
+    def __init__(self, target_col_name:str, input_col_name:str) -> None:
+        super().__init__(target_col_name=target_col_name, input_col_name=input_col_name)
 
     def dropNull(self) -> tuple[pd.Series]:
         """ drops null values from X and y pandas series 
             Args:
-                X: pd.Series 
-                y: pd.Series
+                df:pd.DataFrame
                 
             Return:
-                tuple[pd.Series]
+                pd.DataFrame
         """
-        self.X.name = 'input'
-        self.y.name = 'output'
-        df = pd.concat([self.X, self.y], axis='columns')
-        df.dropna(inplace=True)
-        self.X = df['input']
-        self.y = df['output']
+        self.df = self.df.dropna()
     
     def labelEncoder(self) -> Union[pd.Series, pd.DataFrame]:
         """ encode target column with LabelEncoder, replace old labels with new encodings
@@ -73,16 +63,28 @@ class ProcessData:
             Args: None
             Return pd.DataFrame
             """
+        
         encoder = LabelEncoder()
-        self.y = encoder.fit_transform(y=self.y)
-
+        self.df[self.target_col_name] = encoder.fit_transform(y=self.df[self.target_col_name])
+        self.LABELS = encoder.classes_
         folder_path = os.path.join('\\'.join(__file__.split('\\')[:-1]), nlp_config.ENCODER_FOLDER)
         if os.path.exists(folder_path) != True:
             os.makedirs(folder_path)
         joblib.dump(encoder, filename=os.path.join(folder_path, 'encoder.pkl'))
-        return self.y
     
-    def processData(self) -> tuple:
+    def textProcessor(self) -> None:
+        """ Filters the text, apply stemming and lemmatization """
+        self.df[self.input_col_name] = self.df[self.input_col_name].apply(textProcess)
+
+    def vectorizer(self, vectorizer_abbrivation:str, MIN_DF:float):
+        """ uses vectorization techniques for converting text into numbers, there are two options
+            count (count vectorizer) or tf-idf """
+        vectorizer_obj = Vectorizer(MIN_DF=MIN_DF)
+        self.X = vectorizer_obj.vectorize(X=self.df[self.input_col_name], 
+                                          vectorizer_abbrivation=vectorizer_abbrivation)
+        self.df = pd.concat([self.X, self.df[self.target_col_name]], axis='columns')
+
+    def processData(self, vectorizer_abbrivation:str, MIN_DF:float) -> tuple:
         """ Drops null values, apply text processing (text filteration), vectorization and Label Encoding
             
             Args:
@@ -93,37 +95,40 @@ class ProcessData:
             Return:
                 tuple (X, y)
         """
-        self.dropNull()
-        self.X = self.X.apply(lambda x: textProcess(x))
-        self.dropNull()
-        vectorizer_obj = Vectorizer(MIN_DF=self.MIN_DF)
-        self.X = vectorizer_obj.vectorize(X=self.X, vectorizer_abbrivation=self.vectorizer_abbrivation)
+        self.df.dropna()
+        self.textProcessor()
+        self.df.dropna()
+        self.vectorizer(vectorizer_abbrivation, MIN_DF)
         self.labelEncoder()
-        print(f"After vectorization: X = {self.X.shape}, y = {self.y.shape}")
-        return self.X, self.y
-    
 
-class Analyze:
-
-    def __init__(self, shuffle:bool=True, test_size:float=0.33):
+class Analyze(BaseOperations):
+    def __init__(self, target_col_name:str, labels:str, shuffle:bool=True, test_size:float=0.33):
+        self.target_col_name = target_col_name
+        self.labels = labels
         self.shuffle = shuffle
         self.test_size = test_size
         self.tester = Tester()
 
-    def fit(self, X:pd.DataFrame, y:pd.Series) -> None:
-        """ create class X and y class variable to access it inot other functions 
-            Return: None"""
-        self.X = X
-        self.y =y 
+    def splitter(self):
+        """ Splits data into X_train, X_test, y_train, y_test
+            these variables are saved into object variables,
+            to access X_train use self.X_train """
+        X_train, X_test, y_train, y_test = train_test_split(self.df.drop([self.target_col_name], axis='columns'), 
+                                                            self.df[self.target_col_name], shuffle=self.shuffle,
+                                                            test_size=self.test_size)
+        self.X_train = X_train
+        self.X_test = X_test
+        self.y_train = y_train
+        self.y_test = y_test
 
     def confusionMatrix(self, y_true:pd.Series, y_pred:pd.Series) -> None:
         """ Plots confusion matrix """
         analyze = ModelPerformanceAnalyzer(results=None)
         print("y_true ", y_true)
         print("y_pred ", y_pred)
-        analyze.plot_confusion_matrix(y_true=y_true, y_pred=y_pred, labels=nlp_config.LABELS)
+        analyze.plot_confusion_matrix(y_true=y_true, y_pred=y_pred, labels=self.labels)
 
-    def analyzeModel(self, y_true:pd.Series, y_pred:pd.Series, model_abbrivation:str) -> dict[dict]:
+    def analyzeModel(self, model_abbrivation:str) -> dict[dict]:
         """
             Analyze a specified model which is mentioned in model_bbrivation
             Args:
@@ -133,13 +138,18 @@ class Analyze:
                 dict[dict] (model metrics)
         """
         tester = Tester()
-        X_train, X_test, y_train, y_test = train_test_split(self.X, self.y)
-        result = tester.classificationMatrices(model_abbrivation, X_train, X_test, y_train, y_test)
-        result = dict({model_abbrivation:result})
-        compare(results=result, categories=nlp_config.LABELS)
+        self.splitter()
+
+        # result = tester.classificationMatrices(model_abbrivation, self.X_train, self.X_test, 
+        #                                        self.y_train, self.y_test)
+
+        result = tester.classificationMatrices(model_abbrivation=model_abbrivation, 
+                                        X_train=self.X_train, X_test=self.X_test,
+                                        y_train=self.y_train, y_test=self.y_test)
+        compare(results=result, categories=self.labels)
         return result 
 
-    def trainAndAnalyze(self, all:bool=True, model_abbrivation:str=None, **params) -> dict[dict]:
+    def trainAndAnalyze(self, apply_all:bool=True, model_abbrivation:str=None) -> dict[dict]:
         """ 
             process data and analyze it with graphs
             Args:
@@ -148,32 +158,41 @@ class Analyze:
             Return: 
                 dict[dict] (all model metrics)
             """
-        
-        tester = Tester(stratify=self.y, 
+
+        tester = Tester(stratify=self.df[self.target_col_name], 
                         shuffle=self.shuffle, 
                         test_size=self.test_size)
-        if all:
-            print(self.X, self.y)
-            results = tester.testAllModels(X=self.X, y=self.y)
+        if apply_all:
+            results = tester.testAllModels(model_abbrivation=model_abbrivation, 
+                                           X=self.df.drop([self.target_col_name], axis='columns'), 
+                                           y=self.df[self.target_col_name])
         else:
-            results = tester.testAModel(X=self.X, y=self.y, 
-                                        model_abbrivation=model_abbrivation,
-                                        **params)
-        compare(results=results, categories=nlp_config.LABELS)
+            # results = tester.testAModel(X=self.df.drop([self.target_col_name], axis='columns'), 
+            #                             y=self.df[self.target_col_name],
+            #                             model_abbrivation=model_abbrivation,
+            #                             **params)
+            self.splitter()
+            results = tester.classificationMatrices(model_abbrivation=model_abbrivation, 
+                                                    X_train=self.X_train, X_test=self.X_test,
+                                                    y_train=self.y_train, y_test=self.y_test)
+            results = {model_abbrivation:results}
+        compare(results=results, categories=self.labels)
         return results
 
+class HyperParameterTuner(BaseOperations):
 
-class HyperParameterTuner:
-
-    def __init__(self, model:str, scoring:str='f1_weighted') -> None:
+    def __init__(self, scoring:str='f1_weighted') -> None:
         """ Args:
                 model: str (choose from ('lr', 'dt', 'rf', 'nb'))
                 scoring: str (by default f1_weighted)
         """
-        self.model = model
         self.scoring = scoring
         
-    def bestEstimator(self, X:pd.DataFrame, y:pd.Series, model:str) -> dict:
+    def fit(self, X:pd.DataFrame, y:pd.Series):
+        self.X = X
+        self.y = y
+
+    def bestEstimator(self, model:str) -> dict:
         """ Try all possible combinations of parameters and find best version of calssifier
         
             Args:
@@ -188,7 +207,7 @@ class HyperParameterTuner:
         grid_search = GridSearchCV(estimator=models_with_params[model][0], param_grid=models_with_params[model][1], 
                                    scoring=self.scoring, cv=3)
         print("searching best parameters...")
-        grid_search.fit(X, y)
+        grid_search.fit(self.X, self.y)
         print("grid search done")
         best_estimator = grid_search.best_estimator_
 
@@ -199,7 +218,7 @@ class HyperParameterTuner:
         result = {"best_estimator":grid_search.best_estimator_, "best_score":grid_search.best_score_,}
         return result
     
-    def bestEstimatorSelector(self, X:pd.DataFrame, y:pd.Series) -> dict[dict]:
+    def bestEstimatorSelector(self) -> dict[dict]:
         """ Try all possible combinations of parameters on every algorithm
         
             Args:
@@ -218,7 +237,7 @@ class HyperParameterTuner:
             print(f"Searching for model {val[2]} ...")
             grid_search = GridSearchCV(estimator=val[0], param_grid=models_with_params[key][1], 
                                     scoring='f1_weighted', cv=3)
-            grid_search.fit(X, y)
+            grid_search.fit(self.X, self.y)
             result[val[2]] = {
                               'best_estimator':grid_search.best_estimator_, 
                               'best_score':grid_search.best_score_
